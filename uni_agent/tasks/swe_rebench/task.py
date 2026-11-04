@@ -111,6 +111,11 @@ class SWEREBenchTask(Task):
                     workdir="/testbed",
                 )
                 finished = agent_result.finished
+                logger.info(
+                    "agent done: finished=%s info=%s",
+                    finished,
+                    json.dumps(agent_result.info, ensure_ascii=False, default=str),
+                )
 
             try:
                 from .reward import compute_reward
